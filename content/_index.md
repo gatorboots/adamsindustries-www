@@ -48,7 +48,7 @@ letterHeading: "Why Adams Industries"
 
 sol2:
   heading: "We Care. We're Ready."
-  body: "Adams Industries is a Louisiana-licensed, insured residential contractor — the kind the <strong>Restore Louisiana Homeowner Assistance Program</strong> is set up to work with. If your home qualifies for Solution 2, you can pick us directly and we'll run the project inside the program's rules: approved Estimated Cost of Repairs, draw-schedule payments, 180-day construction start, full documentation from day one."
+  body: "Adams Industries is a Louisiana-licensed, insured residential contractor — the kind the <span class=\"sol2-lead\"><strong>Restore Louisiana Homeowner Assistance Program</strong> is set up to work with. If your home qualifies for Solution 2,</span> you can pick us directly and we'll run the project inside the program's rules: approved Estimated Cost of Repairs, draw-schedule payments, 180-day construction start, full documentation from day one."
   url: "/solution-2/"
   buttonLabel: "Solution 2 for Homeowners"
 
