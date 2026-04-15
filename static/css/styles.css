@@ -143,16 +143,16 @@ p { margin-bottom: 1rem; }
 }
 
 .wordmark-name {
-    font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
     color: var(--paper);
     transition: color 0.15s;
 }
 
 .wordmark-suffix {
-    font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
     color: var(--gold);
     letter-spacing: 0.22em;
-    padding-bottom: 0.08rem;
+    padding-bottom: 0.15rem;
 }
 
 .wordmark:hover .wordmark-name { color: var(--gold); }
@@ -160,14 +160,39 @@ p { margin-bottom: 1rem; }
 .masthead-nav {
     list-style: none;
     display: flex;
-    gap: 1.25rem 1.5rem;
+    gap: 1.25rem 1.75rem;
     flex-wrap: wrap;
     font-family: var(--font-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.11em;
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 700;
 }
+
+/* Hamburger button — hidden on desktop, shown on narrow widths. */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid var(--paper);
+    padding: 0.55rem 0.65rem;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: auto;
+    align-self: center;
+}
+.nav-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--paper);
+    margin: 5px 0;
+    transition: transform 0.2s, opacity 0.2s;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle:hover { border-color: var(--gold); }
+.nav-toggle:hover .nav-toggle-bar { background: var(--gold); }
 
 .masthead-nav a {
     color: var(--paper);
@@ -757,8 +782,37 @@ p { margin-bottom: 1rem; }
 }
 
 @media (max-width: 900px) {
-    .masthead-main .container { flex-direction: column; align-items: flex-start; }
-    .masthead-nav { width: 100%; gap: 0.75rem 1.25rem; font-size: 0.76rem; }
+    .masthead-main .container {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .nav-toggle { display: block; }
+    .masthead-nav {
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+    .masthead-nav.is-open {
+        max-height: 600px;
+        padding: 0.5rem 0 0.75rem;
+    }
+    .masthead-nav li { width: 100%; }
+    .masthead-nav a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .masthead-nav a:hover,
+    .masthead-nav a.active {
+        border-bottom-color: var(--gold);
+    }
     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
@@ -780,16 +834,18 @@ p { margin-bottom: 1rem; }
     .number:last-child { border-bottom: none; padding-bottom: 0; }
 
     /* Header wordmark fills the width on mobile so it reads as the
-       masthead it is, not a small corner label. */
-    .masthead-main .container { align-items: stretch; }
+       masthead it is, not a small corner label. Hamburger sits to the right. */
     .wordmark {
-        width: 100%;
-        justify-content: space-between;
+        flex: 1 1 auto;
+        min-width: 0;
+        justify-content: flex-start;
         align-items: baseline;
+        gap: 0.6rem;
         padding: 0.35rem 0;
     }
-    .wordmark-name { font-size: clamp(1.9rem, 9.5vw, 3rem); }
-    .wordmark-suffix { font-size: clamp(0.9rem, 3vw, 1.15rem); }
+    .wordmark-name { font-size: clamp(1.9rem, 8.5vw, 2.8rem); }
+    /* LLC at least half the height of "Adams Industries" per owner request. */
+    .wordmark-suffix { font-size: clamp(1.05rem, 5vw, 1.6rem); }
 }
 
 @media (max-width: 560px) {

@@ -5,7 +5,12 @@
                 <span class="wordmark-name">Adams Industries</span>
                 <span class="wordmark-suffix">LLC</span>
             </a>
-            <ul class="masthead-nav">
+            <button type="button" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="masthead-nav" id="primary-nav">
                 {{- $currentPage := . -}}
                 {{- range .Site.Menus.main }}
                 <li>
@@ -16,3 +21,15 @@
         </div>
     </div>
 </header>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('primary-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
