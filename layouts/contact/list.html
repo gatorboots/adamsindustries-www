@@ -64,7 +64,6 @@
 
                     <button type="submit" class="btn" id="inquire-submit">Send</button>
                     <p id="inquire-status" role="status" aria-live="polite" style="font-size: 0.9rem; margin-top: 1rem; min-height: 1.2em;"></p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">For faster service, call <a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a>.</p>
                 </form>
 
                 {{- with .Site.Params.formEndpoint }}

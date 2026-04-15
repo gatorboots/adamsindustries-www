@@ -19,22 +19,7 @@ jsonld: |
 
 ## Get in Touch — Directly
 
-Whether it's an estimate, a project consult, or a storm-response call, you reach us directly. No call center. No regional manager. The principal is on the number below, and if the line's busy, you'll get a callback the same day.
-
-## Telephone
-
-[(985) 255-2435](tel:+19852552435)
-
-Mobile. Calls and texts both work.
-
-## Post
-
-[info@adamsindustriesllc.com](mailto:info@adamsindustriesllc.com)
-
-## Bureau
-
-Baton Rouge, LA
-United States
+Whether it's an estimate, a project consult, or a storm-response call, send us a note using the form. No call center. No regional manager. The principal reads the inbox and will respond the same day.
 
 ## Service Area
 

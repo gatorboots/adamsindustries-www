@@ -30,8 +30,7 @@
                 <h4>Contact</h4>
                 <ul>
                     <li>{{ .Site.Params.city }}, {{ .Site.Params.region }}</li>
-                    <li><a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a></li>
-                    <li><a href="{{ .Site.Params.emailHref | safeURL }}">{{ .Site.Params.email }}</a></li>
+                    <li><a href="{{ "contact/" | relURL }}">Send a message</a></li>
                 </ul>
                 {{- partial "social-icons.html" . -}}
             </div>
