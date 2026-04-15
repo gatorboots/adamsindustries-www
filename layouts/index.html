@@ -1,6 +1,9 @@
 {{ define "main" }}
 
 <section class="cover">
+    <div class="cover-skyline" aria-hidden="true">
+        <img src="{{ "media/brskyline-bw.jpg" | relURL }}" alt="">
+    </div>
     <div class="container">
         <div class="cover-grid">
             <h1 class="display-1">{{ .Params.coverHeadline | default .Site.Params.tagline | safeHTML }}</h1>
