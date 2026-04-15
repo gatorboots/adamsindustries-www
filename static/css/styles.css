@@ -956,8 +956,27 @@ p { margin-bottom: 1rem; }
 /* ============================================================
    Mobile centering — center headings, CTAs, and list blocks
    while leaving long-form paragraphs left-aligned for legibility.
+   Also bump base text size for easier reading on small screens.
    ============================================================ */
 @media (max-width: 720px) {
+    /* Base typography bump */
+    body { font-size: 17.5px; line-height: 1.65; }
+    .article-body p,
+    .article-body li,
+    .page-hero .deck,
+    .spread-intro .deck,
+    .cover .deck { font-size: 1.05rem; line-height: 1.6; }
+    .feature-card p { font-size: 1rem; line-height: 1.55; }
+    .inquire .deck { font-size: 1.02rem; }
+    .call-box-note { font-size: 0.92rem; }
+    .form-group label { font-size: 1rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { font-size: 1.02rem; }
+    .colophon p,
+    .colophon li,
+    .colophon a { font-size: 0.98rem; }
+
     /* Page hero (interior pages) */
     .page-hero .container--narrow { text-align: center; }
     .page-hero .deck { margin-left: auto; margin-right: auto; }
