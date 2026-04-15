@@ -1,0 +1,31 @@
+{{- $heading := .heading | default "Get in Touch" -}}
+{{- $deck := .deck | default "Call, email, or send a note. We return messages promptly." -}}
+{{- $buttonLabel := .buttonLabel | default "Request an Estimate" -}}
+{{- $buttonURL := .buttonURL | default "/contact/" -}}
+{{- $showContactGrid := .showContactGrid | default false -}}
+{{- $site := .site -}}
+<section class="inquire">
+    <div class="container--narrow">
+        <h2 class="display-2">{{ $heading }}</h2>
+        <p class="deck">{{ $deck }}</p>
+
+        {{- if $showContactGrid }}
+        <div class="inquire-contact">
+            <div>
+                <span class="kicker">Phone</span>
+                <strong><a href="{{ $site.Params.phoneHref | safeURL }}">{{ $site.Params.phone }}</a></strong>
+            </div>
+            <div>
+                <span class="kicker">Email</span>
+                <strong><a href="{{ $site.Params.emailHref | safeURL }}">{{ $site.Params.email }}</a></strong>
+            </div>
+            <div>
+                <span class="kicker">Location</span>
+                <strong>{{ $site.Params.city }}, {{ $site.Params.region }}</strong>
+            </div>
+        </div>
+        {{- end }}
+
+        <p><a href="{{ if hasPrefix $buttonURL "tel:" }}{{ $buttonURL | safeURL }}{{ else if hasPrefix $buttonURL "mailto:" }}{{ $buttonURL | safeURL }}{{ else }}{{ $buttonURL | relURL }}{{ end }}" class="btn">{{ $buttonLabel }}</a></p>
+    </div>
+</section>

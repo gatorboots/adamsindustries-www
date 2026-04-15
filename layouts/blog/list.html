@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+<section class="page-hero">
+    <div class="container--narrow">
+        <h1 class="display-1">{{ .Title }}</h1>
+        {{- with .Params.deck }}<p class="deck">{{ . }}</p>{{ end }}
+    </div>
+</section>
+
+<section class="spread">
+    <div class="container--narrow">
+        {{- if .Content }}
+        <div class="article-body">{{ .Content }}</div>
+        {{- end }}
+
+        <div class="disclaimer">
+            <strong>Subscribe:</strong> RSS feed available at
+            <a href="{{ (.OutputFormats.Get "RSS").Permalink }}">{{ (.OutputFormats.Get "RSS").Permalink }}</a>.
+            Each post also has an AMP version at <code>/amp/blog/{post-slug}/</code>.
+        </div>
+    </div>
+</section>
+
+<section class="spread spread--alt">
+    <div class="container">
+        <div class="spread-intro">
+            <h2 class="display-2">All Posts</h2>
+            <p class="deck">{{ len .Pages }} post{{ if ne (len .Pages) 1 }}s{{ end }}, newest first.</p>
+        </div>
+
+        <div class="feature-grid feature-grid--2">
+            {{- range (.Pages.ByDate.Reverse) }}
+            <article class="feature-card">
+                <span class="kicker kicker--plain">{{ dateFormat "January 2, 2006" .Date }}</span>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <p>{{ .Params.deck | default .Params.description | default (.Summary | plainify | truncate 220) }}</p>
+                <a href="{{ .RelPermalink }}" class="read-more">Read the post →</a>
+            </article>
+            {{- end }}
+        </div>
+    </div>
+</section>
+
+{{- partial "inquire.html" (dict
+    "heading" (.Params.inquireHeading | default "Need an Answer Today?")
+    "deck" (.Params.inquireDeck | default "Call and we'll talk through whatever you're looking at.")
+    "buttonLabel" (.Params.inquireButton | default "Call (985) 255-2435")
+    "buttonURL" (.Params.inquireURL | default "tel:+19852552435")
+    "showContactGrid" false
+    "site" .Site
+) -}}
+
+{{ end }}

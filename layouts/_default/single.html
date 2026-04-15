@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="page-hero">
+    <div class="container--narrow">
+        <h1 class="display-1">{{ .Title }}</h1>
+        {{- with .Params.deck }}<p class="deck">{{ . }}</p>{{ end }}
+        {{- with .Params.heroButton }}
+        {{- $hbURL := .url | default "/contact/" -}}
+        <p><a href="{{ if hasPrefix $hbURL "tel:" }}{{ $hbURL | safeURL }}{{ else if hasPrefix $hbURL "mailto:" }}{{ $hbURL | safeURL }}{{ else }}{{ $hbURL | relURL }}{{ end }}" class="btn">{{ .label }}</a></p>
+        {{- end }}
+    </div>
+</section>
+
+{{- if .Content }}
+<section class="spread">
+    <div class="container--narrow">
+        <div class="article-body">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- partial "inquire.html" (dict
+    "heading" (.Params.inquireHeading | default "Get in Touch")
+    "deck" (.Params.inquireDeck | default "Call, email, or send a note. We return messages promptly.")
+    "buttonLabel" (.Params.inquireButton | default "Request an Estimate")
+    "buttonURL" (.Params.inquireURL | default "/contact/")
+    "showContactGrid" false
+    "site" .Site
+) -}}
+
+{{ end }}

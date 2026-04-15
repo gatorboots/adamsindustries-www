@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" role="img" aria-label="Adams Industries LLC">
+  <title>Adams Industries LLC</title>
+  <defs>
+    <!-- Subtle silver gradient for ADAMS fill -->
+    <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8E8E8"/>
+      <stop offset="50%" stop-color="#9A9A9A"/>
+      <stop offset="100%" stop-color="#C0C0C0"/>
+    </linearGradient>
+
+    <style>
+      .star-outline {
+        fill: none;
+        stroke: #0A2A5E;
+        stroke-width: 10;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 10;
+      }
+      .adams {
+        font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+        font-size: 118px;
+        font-style: italic;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+      .adams-navy  { fill: none; stroke: #0A2A5E; stroke-width: 18; paint-order: stroke; stroke-linejoin: round; }
+      .adams-gold  { fill: none; stroke: #E6B422; stroke-width: 10; paint-order: stroke; stroke-linejoin: round; }
+      .adams-fill  { fill: url(#silver); }
+      .industries {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 48px;
+        font-style: italic;
+        font-weight: 900;
+        fill: #0A2A5E;
+        letter-spacing: 3px;
+      }
+      .llc {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 42px;
+        font-weight: 900;
+        fill: #0A2A5E;
+        letter-spacing: 6px;
+      }
+    </style>
+  </defs>
+
+  <!-- 5-pointed star, center (200, 135), outer r=125, inner r=52 -->
+  <polygon class="star-outline"
+           points="200,10 231,93 319,96 249,151 273,236 200,187 127,236 151,151 81,96 169,93"/>
+
+  <!-- ADAMS — three stacked text elements for navy-gold-silver layered outline effect -->
+  <g>
+    <text x="60"  y="185" class="adams adams-navy">ADAMS</text>
+    <text x="60"  y="185" class="adams adams-gold">ADAMS</text>
+    <text x="60"  y="185" class="adams adams-fill">ADAMS</text>
+  </g>
+
+  <!-- INDUSTRIES to right of star -->
+  <text x="370" y="148" class="industries">INDUSTRIES</text>
+
+  <!-- LLC below INDUSTRIES -->
+  <text x="540" y="205" class="llc">LLC</text>
+</svg>

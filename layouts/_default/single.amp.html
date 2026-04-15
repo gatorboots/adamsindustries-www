@@ -1,0 +1,199 @@
+<!doctype html>
+<html ⚡ lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>{{ .Title }} — {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Params.description | default .Site.Params.description }}">
+    <meta name="author" content="{{ .Site.Params.company }}">
+    <meta name="theme-color" content="#1e3a5f">
+
+    {{ $htmlPermalink := (.OutputFormats.Get "HTML").Permalink -}}
+    <link rel="canonical" href="{{ $htmlPermalink }}">
+
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Params.description | default .Site.Params.description }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ $htmlPermalink }}">
+    <meta property="og:image" content="{{ "logo.svg" | absURL }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap">
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+        :root {
+            --blue: #1e3a5f;
+            --blue-dark: #132a48;
+            --gold: #b88a2b;
+            --gold-dark: #8c6a1f;
+            --paper: #fff;
+            --ink: #121821;
+            --text: #242a33;
+            --text-muted: #5a6472;
+            --hairline: #dde1e7;
+            --blue-tint: #f5f7fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', -apple-system, Helvetica, Arial, sans-serif; color: var(--text); background: var(--paper); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+        /* Masthead */
+        .mh { background: var(--blue); color: #fff; border-bottom: 3px solid var(--gold); }
+        .mh-top { background: var(--blue-dark); padding: 0.4rem 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; color: rgba(255,255,255,0.75); }
+        .mh-top .container { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+        .mh-top a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .mh-main { padding: 0.75rem 0; }
+        .mh-main .container { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; text-decoration: none; font-size: 1.35rem; line-height: 1; }
+        .wordmark .suf { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.22em; margin-left: 0.25rem; }
+        .mh-nav { list-style: none; display: flex; gap: 0.85rem 1.2rem; flex-wrap: wrap; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; }
+        .mh-nav a { color: #fff; text-decoration: none; padding: 0.25rem 0; }
+        .mh-nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+
+        /* Page hero */
+        .hero { background: var(--blue); color: #fff; padding: 2.5rem 0 2rem; border-top: 4px solid var(--gold); }
+        .hero .kicker { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.72rem; color: var(--gold); font-weight: 600; display: inline-block; margin-bottom: 1rem; padding-left: 2.2rem; position: relative; }
+        .hero .kicker::before { content: ""; position: absolute; left: 0; top: 50%; width: 1.75rem; height: 2px; background: var(--gold); }
+        .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1; text-transform: uppercase; letter-spacing: -0.005em; color: #fff; margin-bottom: 0.75rem; }
+        .hero .deck { font-weight: 300; font-size: 1.05rem; line-height: 1.55; color: rgba(255,255,255,0.88); max-width: 60ch; margin-bottom: 1rem; }
+        .hero .byline { display: block; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.14); padding-top: 0.85rem; margin-top: 1rem; }
+
+        /* Article */
+        article { padding: 2rem 0 2.5rem; }
+        article h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.4rem; color: var(--blue); margin: 2rem 0 0.85rem; padding-top: 1.25rem; border-top: 3px solid var(--gold); }
+        article h2:first-of-type { margin-top: 0; }
+        article h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.1rem; color: var(--blue); margin: 1.5rem 0 0.5rem; }
+        article p { margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+        article a { color: var(--blue); font-weight: 500; }
+        article a:hover { color: var(--gold-dark); }
+        article ul, article ol { margin: 0.75rem 0 1.25rem 0.25rem; list-style: none; }
+        article ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
+        article ul li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.7rem; height: 2px; background: var(--gold); }
+        article ol { counter-reset: item; }
+        article ol li { counter-increment: item; position: relative; padding-left: 2.25rem; margin-bottom: 0.6rem; }
+        article ol li::before { content: counter(item, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: 'Barlow Condensed', sans-serif; color: var(--gold-dark); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.1em; }
+        article blockquote { border-top: 3px solid var(--gold); border-bottom: 1px solid var(--hairline); padding: 1.5rem 0; margin: 1.75rem 0; text-align: center; }
+        article blockquote p { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; text-transform: uppercase; font-size: 1.25rem; line-height: 1.2; color: var(--blue); letter-spacing: 0.005em; }
+
+        /* CTA block */
+        .cta { background: var(--blue); color: #fff; padding: 2.5rem 0; text-align: center; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+        .cta h2 { color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.6rem; border: 0; padding: 0; margin-bottom: 0.5rem; }
+        .cta p { color: rgba(255,255,255,0.88); margin-bottom: 1.25rem; }
+        .btn { display: inline-block; background: var(--gold); color: var(--blue); padding: 0.85rem 1.75rem; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; font-weight: 600; text-decoration: none; border: 2px solid var(--gold); }
+        .btn:hover { background: var(--blue-dark); color: var(--gold); }
+
+        /* Social icons */
+        .social-icons { list-style: none; display: flex; gap: 0.6rem; padding: 0; margin: 0.75rem 0 0; align-items: center; }
+        .social-icons a, .social-icons .social-icon-disabled { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.8); border-radius: 2px; transition: color 0.15s, border-color 0.15s, background-color 0.15s; }
+        .social-icons a:hover { color: var(--blue-dark); background: var(--gold); border-color: var(--gold); }
+        .social-icons .social-icon-disabled { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.15); cursor: not-allowed; }
+        .social-icon { width: 1rem; height: 1rem; display: block; fill: currentColor; }
+
+        /* AMP link ribbon */
+        .amp-ribbon { background: var(--blue-tint); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 0.75rem 0; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--text-muted); text-align: center; }
+        .amp-ribbon a { color: var(--blue); font-weight: 600; margin-left: 0.5rem; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
+
+        /* Footer */
+        .colo { background: var(--blue-dark); color: rgba(255,255,255,0.78); padding: 2rem 0 1.5rem; border-top: 4px solid var(--gold); font-size: 0.88rem; }
+        .colo a { color: rgba(255,255,255,0.85); text-decoration: none; }
+        .colo a:hover { color: var(--gold); }
+        .colo .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.14); }
+        .colo h4 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.75rem; color: var(--gold); margin-bottom: 0.75rem; font-weight: 600; }
+        .colo .bot { padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.68rem; color: rgba(255,255,255,0.5); }
+
+        @media (max-width: 560px) {
+            .hero h1 { font-size: 1.65rem; }
+            .colo .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+    <header class="mh">
+        <div class="mh-main">
+            <div class="container">
+                <a href="{{ "/" | absURL }}" class="wordmark">Adams Industries<span class="suf">LLC</span></a>
+                <ul class="mh-nav">
+                    <li><a href="{{ "/" | absURL }}">Home</a></li>
+                    <li><a href="{{ "/services/" | absURL }}">Services</a></li>
+                    <li><a href="{{ "/solution-2/" | absURL }}">Solution 2</a></li>
+                    <li><a href="{{ "/blog/" | absURL }}" class="active">Blog</a></li>
+                    <li><a href="{{ "/contact/" | absURL }}">Inquire</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="amp-ribbon">
+        <div class="container">
+            AMP Edition · <a href="{{ $htmlPermalink }}">View the full HTML version →</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            {{- with .Params.kicker }}<span class="kicker">{{ . }}</span>{{ end }}
+            <h1>{{ .Title }}</h1>
+            {{- with .Params.deck }}<p class="deck">{{ . }}</p>{{ end }}
+            <span class="byline">{{ .Params.byline | default .Site.Params.company }} &middot; {{ dateFormat "January 2, 2006" .Date }}</span>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <article>
+                {{ .Content }}
+            </article>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>{{ .Params.inquireHeading | default "Work With a Louisiana Contractor" }}</h2>
+            <p>{{ .Params.inquireDeck | default "Call us directly — Baton Rouge based, Louisiana-licensed, Solution 2 ready." }}</p>
+            <p><a href="tel:+19852552435" class="btn">Call (985) 255-2435</a></p>
+        </div>
+    </section>
+
+    <footer class="colo">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h4>Adams Industries LLC</h4>
+                    <p>Baton Rouge, LA · Licensed, insured, BBB A+ · Approved Solution 2 participating contractor for the Restore Louisiana Homeowner Assistance Program.</p>
+                </div>
+                <div>
+                    <h4>Reach Us</h4>
+                    <p><a href="tel:+19852552435">(985) 255-2435</a><br>
+                    <a href="mailto:info@adamsindustriesllc.com">info@adamsindustriesllc.com</a></p>
+                    <ul class="social-icons" aria-label="Adams Industries social">
+                        {{- if .Site.Params.facebook }}
+                        <li><a href="{{ .Site.Params.facebook }}" rel="noopener" aria-label="Facebook" title="Facebook"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8.2h2.77l.41-3.21H13.4V7.55c0-.93.26-1.56 1.59-1.56h1.68V3.13A22.4 22.4 0 0 0 14.2 3c-2.44 0-4.12 1.49-4.12 4.23v2.36H7.33V12.8h2.75V21h3.32z"/></svg></a></li>
+                        {{- else }}
+                        <li><span class="social-icon-disabled" aria-label="Facebook — coming soon" title="Coming soon"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8.2h2.77l.41-3.21H13.4V7.55c0-.93.26-1.56 1.59-1.56h1.68V3.13A22.4 22.4 0 0 0 14.2 3c-2.44 0-4.12 1.49-4.12 4.23v2.36H7.33V12.8h2.75V21h3.32z"/></svg></span></li>
+                        {{- end }}
+                        {{- if .Site.Params.instagram }}
+                        <li><a href="{{ .Site.Params.instagram }}" rel="noopener" aria-label="Instagram" title="Instagram"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.22-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.18 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+                        {{- else }}
+                        <li><span class="social-icon-disabled" aria-label="Instagram — coming soon" title="Coming soon"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.22-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.18 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></span></li>
+                        {{- end }}
+                        {{- if .Site.Params.tiktok }}
+                        <li><a href="{{ .Site.Params.tiktok }}" rel="noopener" aria-label="TikTok" title="TikTok"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.88-2.89c.3 0 .59.05.88.14V9.4a6.33 6.33 0 1 0 5.45 6.27v-7a8.16 8.16 0 0 0 4.77 1.52V6.79a4.85 4.85 0 0 1-1-.1z"/></svg></a></li>
+                        {{- else }}
+                        <li><span class="social-icon-disabled" aria-label="TikTok — coming soon" title="Coming soon"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.88-2.89c.3 0 .59.05.88.14V9.4a6.33 6.33 0 1 0 5.45 6.27v-7a8.16 8.16 0 0 0 4.77 1.52V6.79a4.85 4.85 0 0 1-1-.1z"/></svg></span></li>
+                        {{- end }}
+                    </ul>
+                </div>
+            </div>
+            <div class="bot">
+                <span>{{ .Site.Copyright }}</span>
+                <span>AMP Edition</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

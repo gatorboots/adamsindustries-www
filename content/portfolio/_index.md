@@ -1,0 +1,38 @@
+---
+title: "Portfolio"
+description: "Representative project types Adams Industries handles across Louisiana: homes, commercial, industrial, marine, and storm response. References on request."
+deck: "Scope we've taken on over twenty years. Photos, client references, and past-project details — send us a note and we'll put you in touch directly."
+
+disclaimer: "<strong>Note:</strong> the entries below describe the kinds of work we take on. Specific project photos, client references, and past-job contacts are available on request — they aren't posted publicly out of respect for those clients. <a href=\"/contact/\">Write or call</a> and we'll make the introductions."
+
+featuresGrid: "2"
+features:
+  - kicker: "Residential"
+    title: "New Construction & Additions"
+    summary: "<strong>Scope:</strong> single-family homes, major additions, gut renovations.<br><strong>What's in it:</strong> site prep, foundation, framing, envelope, MEP, interior finish.<br><strong>Where:</strong> East Baton Rouge and surrounding parishes, with trips down the coast when scope demands."
+  - kicker: "Residential"
+    title: "Hurricane Recovery — Homes"
+    summary: "<strong>Scope:</strong> post-storm restoration of damaged residences.<br><strong>What's in it:</strong> structural assessment, roofing, water mitigation, electrical and plumbing repair, interior rebuild.<br><strong>Insurance:</strong> coordinated estimates and documentation."
+  - kicker: "Commercial"
+    title: "Retail & Storefront"
+    summary: "<strong>Scope:</strong> retail buildouts, storefront restoration, tenant improvements.<br><strong>What's in it:</strong> structural, MEP, interior finish, ADA compliance.<br><strong>Scheduling:</strong> phased to minimize closure when possible."
+  - kicker: "Commercial"
+    title: "Office & Multi-Tenant"
+    summary: "<strong>Scope:</strong> office buildouts and tenant coordination.<br><strong>What's in it:</strong> demising, MEP, finish, multi-tenant logistics.<br><strong>Coordination:</strong> tenant schedules and occupancy handled end to end."
+  - kicker: "Industrial"
+    title: "Industrial Facilities"
+    summary: "<strong>Scope:</strong> industrial site work, facility repair, specialty construction.<br><strong>What's in it:</strong> structural, utility systems, equipment foundations.<br><strong>Safety:</strong> OSHA-compliant site management."
+  - kicker: "Marine"
+    title: "Marine-Adjacent Work"
+    summary: "<strong>Scope:</strong> construction on and near water, specialty coordination.<br><strong>What's in it:</strong> scope defined per-project with marine specialty partners we vet ourselves.<br><strong>Coastal:</strong> we know what salt air does to fasteners, so we spec accordingly."
+  - kicker: "Emergency"
+    title: "Storm Response & Stabilization"
+    summary: "<strong>Scope:</strong> the first seventy-two hours after a major event.<br><strong>What's in it:</strong> tarping, board-up, water extraction, documentation for the adjuster.<br><strong>Response window:</strong> mobilized as conditions allow safe access."
+  - kicker: "Portfolio"
+    title: "Multi-Site Recovery"
+    summary: "<strong>Scope:</strong> coordinated work across multiple properties for a single owner or investor group.<br><strong>What's in it:</strong> consolidated assessment, one schedule, unified reporting to whomever signs the checks.<br><strong>Ideal for:</strong> owners with more than one site down after a regional event."
+
+inquireHeading: "Ask for References"
+inquireDeck: "If you're evaluating us for a project, we'll put you in touch with past clients whose scope looks like yours."
+inquireButton: "Get in Touch"
+---

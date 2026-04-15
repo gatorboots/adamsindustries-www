@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<section class="page-hero">
+    <div class="container--narrow">
+        <h1 class="display-1">{{ .Title }}</h1>
+        {{- with .Params.deck }}<p class="deck">{{ . }}</p>{{ end }}
+    </div>
+</section>
+
+{{- with .Params.disclaimer }}
+<section class="spread">
+    <div class="container--narrow">
+        <div class="disclaimer">{{ . | safeHTML }}</div>
+    </div>
+</section>
+{{- end }}
+
+{{- if .Content }}
+<section class="spread">
+    <div class="container--narrow">
+        <div class="article-body">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- with .Params.features }}
+<section class="spread{{ if $.Params.featuresAlt }} spread--alt{{ end }}">
+    <div class="container">
+        {{- if or $.Params.featuresHeading $.Params.featuresDeck }}
+        <div class="spread-intro">
+            {{- with $.Params.featuresHeading }}<h2 class="display-2">{{ . }}</h2>{{ end }}
+            {{- with $.Params.featuresDeck }}<p class="deck">{{ . }}</p>{{ end }}
+        </div>
+        {{- end }}
+
+        <div class="feature-grid{{ with $.Params.featuresGrid }} feature-grid--{{ . }}{{ end }}">
+            {{- range . }}
+            {{- $url := .url -}}
+            {{- $linkLabel := .linkLabel -}}
+            <article class="feature-card">
+                {{- with .kicker }}<span class="kicker kicker--plain">{{ . }}</span>{{ end }}
+                <h3>{{ if $url }}<a href="{{ $url | relURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+                {{- with .summary }}<p>{{ . | safeHTML }}</p>{{ end }}
+                {{- if $linkLabel -}}
+                  {{- if $url }}<a href="{{ $url | relURL }}" class="read-more">{{ $linkLabel }}</a>
+                  {{- else }}<span class="read-more">{{ $linkLabel }}</span>{{ end -}}
+                {{- else if $url }}<a href="{{ $url | relURL }}" class="read-more">Learn more →</a>{{ end }}
+            </article>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- with .Params.afterBody }}
+<section class="spread{{ if $.Params.afterBodyAlt }} spread--alt{{ end }}">
+    <div class="container--narrow">
+        <div class="article-body">
+            {{ . | safeHTML }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- partial "inquire.html" (dict
+    "heading" (.Params.inquireHeading | default "Get in Touch")
+    "deck" (.Params.inquireDeck | default "Call, email, or send a note. We return messages promptly.")
+    "buttonLabel" (.Params.inquireButton | default "Request an Estimate")
+    "buttonURL" (.Params.inquireURL | default "/contact/")
+    "showContactGrid" false
+    "site" .Site
+) -}}
+
+{{ end }}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" role="img" aria-label="Adams Industries LLC">
+  <title>Adams Industries LLC</title>
+  <defs>
+    <style>
+      /* Thinner star stroke so ADAMS text — which sits in front of it —
+         isn't competing with a heavy outline behind it. */
+      .star-mono { fill: none; stroke: #000000; stroke-width: 5; stroke-linejoin: miter; stroke-miterlimit: 10; }
+      .text-mono { font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif; font-weight: 900; fill: #000000; }
+      .adams-mono { font-size: 118px; font-style: italic; letter-spacing: 2px; }
+      .industries-mono { font-size: 48px; font-style: italic; letter-spacing: 3px; }
+      .llc-mono { font-size: 42px; letter-spacing: 6px; }
+    </style>
+  </defs>
+
+  <!-- Star — black wireframe -->
+  <polygon class="star-mono"
+           points="200,10 231,93 319,96 249,151 273,236 200,187 127,236 151,151 81,96 169,93"/>
+
+  <!-- ADAMS — flat bold black -->
+  <text x="60" y="185" class="text-mono adams-mono">ADAMS</text>
+
+  <!-- INDUSTRIES -->
+  <text x="370" y="150" class="text-mono industries-mono">INDUSTRIES</text>
+
+  <!-- LLC -->
+  <text x="540" y="195" class="text-mono llc-mono">LLC</text>
+</svg>

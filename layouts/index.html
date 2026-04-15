@@ -1,0 +1,87 @@
+{{ define "main" }}
+
+<section class="cover">
+    <div class="container">
+        <div class="cover-grid">
+            <h1 class="display-1">{{ .Params.coverHeadline | default .Site.Params.tagline | safeHTML }}</h1>
+            <p class="deck">{{ .Params.coverDeck | default .Site.Params.description }}</p>
+            <p><a href="{{ "contact/" | relURL }}" class="btn">{{ .Params.coverCTA | default "Request an Estimate" }}</a></p>
+        </div>
+    </div>
+</section>
+
+{{- with .Params.sol2 }}
+<section class="sol2-banner">
+    <div class="container">
+        <div class="sol2-banner-body">
+            <h2>{{ .heading | default "We Care. We're Ready." }}</h2>
+            <p>{{ .body | safeHTML }}</p>
+        </div>
+        <a href="{{ .url | default "/solution-2/" | relURL }}" class="btn btn--sol2">{{ .buttonLabel | default "Learn How It Works" }}</a>
+    </div>
+</section>
+{{- end }}
+
+{{- with .Params.features }}
+<section class="spread">
+    <div class="container">
+        <div class="spread-intro">
+            {{- with $.Params.featuresHeading }}<h2 class="display-2">{{ . }}</h2>{{ end }}
+            {{- with $.Params.featuresDeck }}<p class="deck">{{ . }}</p>{{ end }}
+        </div>
+
+        <div class="feature-grid">
+            {{- range . }}
+            <article class="feature-card">
+                {{- with .kicker }}<span class="kicker kicker--plain">{{ . }}</span>{{ end }}
+                <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+                <p>{{ .summary }}</p>
+                <a href="{{ .url | relURL }}" class="read-more">{{ .linkLabel | default "Learn more →" }}</a>
+            </article>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- with .Params.numbers }}
+<section class="numbers">
+    <div class="container">
+        <div class="numbers-head">
+            <h2 class="display-2">{{ $.Params.numbersHeading | default "By the Numbers" }}</h2>
+        </div>
+        <div class="numbers-grid">
+            {{- range . }}
+            <div class="number">
+                <span class="value">{{ .value }}</span>
+                <span class="label">{{ .label }}</span>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- if .Content }}
+<section class="spread spread--alt">
+    <div class="container--narrow">
+        <div class="spread-intro" style="margin-bottom: 1.5rem;">
+            <h2 class="display-2">{{ .Params.letterHeading | default "Why Adams Industries" }}</h2>
+        </div>
+        <div class="article-body">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- partial "inquire.html" (dict
+    "heading" (.Params.inquireHeading | default "Get in Touch")
+    "deck" (.Params.inquireDeck | default "Call, email, or send a note. We return messages promptly.")
+    "buttonLabel" (.Params.inquireButton | default "Request an Estimate")
+    "buttonURL" (.Params.inquireURL | default "/contact/")
+    "showContactGrid" true
+    "site" .Site
+) -}}
+
+{{ end }}

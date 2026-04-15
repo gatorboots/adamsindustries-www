@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" role="img" aria-label="Adams Industries LLC">
+  <title>Adams Industries LLC</title>
+  <defs>
+    <linearGradient id="silverLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2f2f2"/>
+      <stop offset="50%" stop-color="#b8b8b8"/>
+      <stop offset="100%" stop-color="#d8d8d8"/>
+    </linearGradient>
+    <style>
+      .star-light { fill: none; stroke: #ffffff; stroke-width: 10; stroke-linejoin: miter; stroke-miterlimit: 10; }
+      .adams-l { font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif; font-size: 118px; font-style: italic; font-weight: 900; letter-spacing: 2px; }
+      .adams-white { fill: none; stroke: #ffffff; stroke-width: 18; paint-order: stroke; stroke-linejoin: round; }
+      .adams-gold-l { fill: none; stroke: #ffb71b; stroke-width: 10; paint-order: stroke; stroke-linejoin: round; }
+      .adams-fill-l { fill: url(#silverLight); }
+      .industries-l { font-family: 'Impact', 'Arial Black', sans-serif; font-size: 48px; font-style: italic; font-weight: 900; fill: #ffffff; letter-spacing: 3px; }
+      .llc-l { font-family: 'Impact', 'Arial Black', sans-serif; font-size: 42px; font-weight: 900; fill: #ffffff; letter-spacing: 6px; }
+    </style>
+  </defs>
+
+  <polygon class="star-light" points="200,10 231,93 319,96 249,151 273,236 200,187 127,236 151,151 81,96 169,93"/>
+
+  <g>
+    <text x="60" y="185" class="adams-l adams-white">ADAMS</text>
+    <text x="60" y="185" class="adams-l adams-gold-l">ADAMS</text>
+    <text x="60" y="185" class="adams-l adams-fill-l">ADAMS</text>
+  </g>
+
+  <text x="370" y="150" class="industries-l">INDUSTRIES</text>
+  <text x="540" y="195" class="llc-l">LLC</text>
+</svg>

@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+<section class="page-hero">
+    <div class="container--narrow">
+        <h1 class="display-1">{{ .Title }}</h1>
+        {{- with .Params.deck }}<p class="deck">{{ . }}</p>{{ end }}
+    </div>
+</section>
+
+<section class="spread">
+    <div class="container">
+        <div class="contact-grid">
+            <article class="article-body">
+                {{ .Content }}
+            </article>
+
+            <aside class="contact-form">
+                <h3>Send a Message</h3>
+                <form method="POST" action="{{ .Site.Params.emailHref | safeURL }}" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Property Address</label>
+                        <input type="text" id="address" name="address" autocomplete="street-address">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Type of Work</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select one</option>
+                            <option value="emergency">Emergency Response</option>
+                            <option value="residential">Residential Construction / Recovery</option>
+                            <option value="commercial">Commercial Construction / Recovery</option>
+                            <option value="solution-2">Restore Louisiana · Solution 2</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="marine">Marine</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send</button>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">Submitting opens your email client. For faster service, call <a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a>.</p>
+                </form>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{{ end }}

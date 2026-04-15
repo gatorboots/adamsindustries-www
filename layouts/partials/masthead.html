@@ -1,0 +1,18 @@
+<header class="masthead">
+    <div class="masthead-main">
+        <div class="container">
+            <a href="{{ "/" | relURL }}" class="wordmark" aria-label="{{ .Site.Params.company }} home">
+                <span class="wordmark-name">Adams Industries</span>
+                <span class="wordmark-suffix">LLC</span>
+            </a>
+            <ul class="masthead-nav">
+                {{- $currentPage := . -}}
+                {{- range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL | relURL }}"{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ( eq $currentPage.RelPermalink (.URL | relURL) ) }} class="active"{{ end }}>{{ .Name }}</a>
+                </li>
+                {{- end }}
+            </ul>
+        </div>
+    </div>
+</header>

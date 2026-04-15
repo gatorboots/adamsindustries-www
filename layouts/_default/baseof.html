@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+{{- partial "head.html" . -}}
+</head>
+<body>
+{{- partial "masthead.html" . -}}
+
+<main>
+    {{- block "main" . }}{{- end }}
+</main>
+
+{{- partial "colophon.html" . -}}
+
+{{- with .Params.jsonld -}}
+<script type="application/ld+json">
+{{ . | safeJS }}
+</script>
+{{- end -}}
+</body>
+</html>

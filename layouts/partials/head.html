@@ -1,0 +1,41 @@
+{{- $title := .Title -}}
+{{- $fullTitle := printf "%s — %s" $title .Site.Title -}}
+{{- if .IsHome }}{{ $fullTitle = printf "%s — Louisiana Construction & Hurricane Recovery" .Site.Title }}{{ end -}}
+{{- $description := .Params.description | default .Site.Params.description -}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ $description }}">
+    <meta name="author" content="{{ .Site.Params.company }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#1e3a5f">
+    <meta name="color-scheme" content="light">
+
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ "logo.svg" | absURL }}">
+    <meta property="og:locale" content="en_US">
+
+    <title>{{ $fullTitle }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="icon" type="image/svg+xml" href="{{ "logo.svg" | relURL }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+
+    {{ with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+    {{- end }}
+
+    {{ range .AlternativeOutputFormats -}}
+    {{ $n := .Name | lower -}}
+    {{ if eq $n "amp" -}}
+    <link rel="amphtml" href="{{ .Permalink }}">
+    {{- else -}}
+    <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{- end }}
+    {{- end }}

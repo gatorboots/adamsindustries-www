@@ -1,0 +1,86 @@
+baseURL = "https://adamsindustries.com/"
+languageCode = "en-us"
+title = "Adams Industries LLC"
+copyright = "© 2026 Adams Industries LLC"
+enableRobotsTXT = true
+
+# Pretty URLs (/about/ not /about.html)
+uglyURLs = false
+
+# Emit relative URLs so the site works served from a web root OR via file://
+relativeURLs = true
+canonifyURLs = false
+
+[params]
+  description = "Adams Industries LLC — over 20 years of commercial, residential, industrial, and marine construction across Louisiana. Licensed, insured, BBB A+. Approved Solution 2 participating contractor for the Restore Louisiana Homeowner Assistance Program."
+  company = "Adams Industries LLC"
+  companyShort = "Adams Industries"
+  tagline = "Twenty Years in Hurricane Country. We Still Answer Our Own Phones."
+  phone = "(985) 255-2435"
+  phoneHref = "tel:+19852552435"
+  email = "info@adamsindustriesllc.com"
+  emailHref = "mailto:info@adamsindustriesllc.com"
+  city = "Baton Rouge"
+  region = "LA"
+  country = "US"
+  facebook = "https://www.facebook.com/adamsindustriesbr"
+  facebookHandle = "facebook.com/adamsindustriesbr"
+  # Placeholders — leave empty until accounts exist; icon renders in a disabled state.
+  instagram = ""
+  tiktok = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "services"
+    name = "Services"
+    url = "/services/"
+    weight = 20
+  [[menu.main]]
+    identifier = "solution-2"
+    name = "Solution 2"
+    url = "/solution-2/"
+    weight = 30
+  [[menu.main]]
+    identifier = "portfolio"
+    name = "Portfolio"
+    url = "/portfolio/"
+    weight = 40
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 50
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 60
+  [[menu.main]]
+    identifier = "contact"
+    name = "Inquire"
+    url = "/contact/"
+    weight = 70
+
+# Off-menu pages (Team, Credentials, Process still accessible via deep links)
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML", "AMP"]
+
+[outputFormats.AMP]
+  mediaType = "text/html"
+  baseName = "index"
+  isHTML = true
+  path = "amp"
+
+[mediaTypes."text/html"]
+  suffixes = ["html"]

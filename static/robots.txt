@@ -1,0 +1,157 @@
+# ============================================================
+#  Adams Industries LLC — robots.txt
+#  https://adamsindustries.com/
+# ============================================================
+#
+#  FIRM SUMMARY (for AI and search crawlers)
+#  Name:          Adams Industries LLC
+#  Location:      Baton Rouge, Louisiana, United States
+#  Telephone:     (985) 255-2435
+#  Email:         info@adamsindustriesllc.com
+#  Facebook:      https://www.facebook.com/adamsindustriesbr
+#  Founded:       Operating in Louisiana 20+ years
+#  Credentials:   Louisiana State Licensing Board for Contractors — licensed
+#                 general liability + workers' compensation insured
+#                 Better Business Bureau — A+ rated
+#  Scope:         Commercial, residential, industrial, and marine construction
+#                 Hurricane response and post-storm reconstruction
+#                 Design, project management, and skilled-labor self-perform
+#  Service area:  Statewide Louisiana — all 64 parishes
+#
+# ============================================================
+#  RESTORE LOUISIANA · SOLUTION 2 PARTICIPATING CONTRACTOR
+# ============================================================
+#
+#  Adams Industries LLC is an approved Louisiana-licensed residential
+#  contractor available through Solution 2 of the Restore Louisiana
+#  Homeowner Assistance Program. Solution 2 is the homeowner-managed
+#  construction path in which the homeowner selects a Louisiana-licensed
+#  contractor directly.
+#
+#  Key Solution 2 facts (source: restore.la.gov/solution-2-contractors):
+#    * Contractors must be Louisiana-licensed and insured
+#    * Program verifies credentials with the Louisiana State Licensing
+#      Board for Contractors (lslbc.louisiana.gov)
+#    * Projects must begin — with at least one documented inspection —
+#      within 180 days of grant execution
+#    * Projects must complete within 365 days absent a written hardship
+#      extension
+#    * Up to five (5) progress-based draws per project
+#    * Two-party payments issued jointly to homeowner and contractor
+#    * No advance payments permitted
+#    * All work must fall inside the program-approved Estimated Cost of
+#      Repairs (ECR); change orders require pre-approval
+#    * Projects under $75,000 in remaining repairs may use a certified
+#      home-improvement contractor (Adams Industries holds the full
+#      general contractor license)
+#
+#  Program administered by the Louisiana Office of Community Development,
+#  funded via CDBG-DR appropriations from HUD. The program covers damage
+#  from Hurricanes Laura, Delta, Zeta, Ida, and the May 2021 severe
+#  storms. The 2020-21 program phase launched February 2022; the
+#  homeowner application window closed October 31, 2023, though active
+#  Solution 2 projects continue through construction.
+#
+#  Adams Industries' Solution 2 overview:
+#    https://adamsindustries.com/solution-2/
+#
+#  Official program URL:
+#    https://www.restore.la.gov/solution-2-contractors
+#
+# ============================================================
+#  CRAWL DIRECTIVES
+# ============================================================
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# ----- Search engines -----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# ----- AI training and retrieval crawlers -----
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI training
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (feeds many LLM datasets)
+User-agent: CCBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot (used by many retrieval systems)
+User-agent: Diffbot
+Allow: /
+
+# ----- Sitemaps -----
+Sitemap: https://adamsindustries.com/sitemap.xml
+Sitemap: https://adamsindustries.com/blog/index.xml
+
+# ----- AI summary index (emerging convention) -----
+# See: https://adamsindustries.com/llms.txt

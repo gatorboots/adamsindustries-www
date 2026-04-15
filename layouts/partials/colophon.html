@@ -1,0 +1,43 @@
+<footer class="colophon">
+    <div class="container">
+        <div class="colophon-grid">
+            <div>
+                <a href="{{ "/" | relURL }}" class="wordmark wordmark--footer" aria-label="{{ .Site.Params.company }} home">
+                    <span class="wordmark-name">Adams Industries</span>
+                    <span class="wordmark-suffix">LLC</span>
+                </a>
+                <p style="margin-top: 1rem;">Commercial, residential, industrial, and marine construction in Louisiana. Licensed, insured, BBB A+. Approved Solution 2 participating contractor for the Restore Louisiana Homeowner Assistance Program.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="{{ "services/" | relURL }}">All Services</a></li>
+                    <li><a href="{{ "solution-2/" | relURL }}">Solution 2</a></li>
+                    <li><a href="{{ "process/" | relURL }}">Process</a></li>
+                    <li><a href="{{ "portfolio/" | relURL }}">Portfolio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="{{ "about/" | relURL }}">About</a></li>
+                    <li><a href="{{ "team/" | relURL }}">Team</a></li>
+                    <li><a href="{{ "credentials/" | relURL }}">Credentials</a></li>
+                    <li><a href="{{ "blog/" | relURL }}">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>{{ .Site.Params.city }}, {{ .Site.Params.region }}</li>
+                    <li><a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a></li>
+                    <li><a href="{{ .Site.Params.emailHref | safeURL }}">{{ .Site.Params.email }}</a></li>
+                </ul>
+                {{- partial "social-icons.html" . -}}
+            </div>
+        </div>
+        <div class="colophon-bottom">
+            <span>{{ .Site.Copyright }}</span>
+        </div>
+    </div>
+</footer>
