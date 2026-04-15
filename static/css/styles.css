@@ -533,11 +533,30 @@ p { margin-bottom: 1rem; }
    Contact CTA
    ============================================================ */
 .inquire {
+    position: relative;
     background: var(--blue);
     color: var(--paper);
     padding: clamp(3rem, 5.5vw, 4.5rem) 0;
     text-align: center;
+    overflow: hidden;
 }
+
+.inquire::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../media/la-flag.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 110%;
+    filter: grayscale(1) brightness(1.6) contrast(0.7);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.inquire > .container,
+.inquire > .container--narrow { position: relative; z-index: 1; }
 
 .inquire h2 { color: var(--paper); margin-bottom: 0.5rem; font-size: clamp(1.6rem, 3vw, 2.25rem); }
 .inquire .deck { color: rgba(255,255,255,0.86); margin: 0 auto 1.5rem; }
