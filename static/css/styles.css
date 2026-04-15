@@ -952,3 +952,64 @@ p { margin-bottom: 1rem; }
     .feature-card { padding: 1.5rem 1.25rem; }
     .btn { padding: 0.7rem 1.3rem; font-size: 0.78rem; }
 }
+
+/* ============================================================
+   Mobile centering — center headings, CTAs, and list blocks
+   while leaving long-form paragraphs left-aligned for legibility.
+   ============================================================ */
+@media (max-width: 720px) {
+    /* Page hero (interior pages) */
+    .page-hero .container--narrow { text-align: center; }
+    .page-hero .deck { margin-left: auto; margin-right: auto; }
+
+    /* Section intros on spreads */
+    .spread-intro { text-align: center; }
+    .spread-intro .deck { margin-left: auto; margin-right: auto; }
+
+    /* Article-body: center headings and block elements,
+       keep paragraph text left-aligned for readability. */
+    .article-body h1,
+    .article-body h2,
+    .article-body h3,
+    .article-body h4 { text-align: center; }
+
+    .article-body .call-box,
+    .article-body > a.btn {
+        display: flex;
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Center the list block while keeping bullets aligned with their text. */
+    .article-body ul,
+    .article-body ol {
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    /* Contact-form card: center its heading */
+    .contact-form h3 { text-align: center; }
+
+    /* Feature card headings center naturally with the card content */
+    .feature-card { text-align: center; }
+    .feature-card .read-more { display: inline-block; }
+
+    /* Mobile nav links look better centered inside the hamburger panel */
+    .masthead-nav a { text-align: center; }
+
+    /* Footer: stack and center column headers and lists */
+    .colophon-grid h4 { text-align: center; }
+    .colophon-grid ul {
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+    .colophon-grid .social-icons { justify-content: center; }
+}
