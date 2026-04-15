@@ -16,7 +16,7 @@
 
             <aside class="contact-form">
                 <h3>Send a Message</h3>
-                <form method="POST" action="{{ .Site.Params.emailHref | safeURL }}" enctype="text/plain">
+                <form id="inquire-form" novalidate>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required autocomplete="name">
@@ -50,9 +50,30 @@
                         <label for="message">Details</label>
                         <textarea id="message" name="message" rows="5"></textarea>
                     </div>
-                    <button type="submit" class="btn">Send</button>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">Submitting opens your email client. For faster service, call <a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a>.</p>
+
+                    {{/* Honeypot — hidden from users, bots fill it and get silently dropped */}}
+                    <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+                        <label for="website">Website (leave blank)</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    {{/* Cloudflare Turnstile widget — rendered only if a site key is configured */}}
+                    {{- with .Site.Params.turnstileSiteKey }}
+                    <div class="cf-turnstile" data-sitekey="{{ . }}" data-theme="light" style="margin: 1rem 0;"></div>
+                    {{- end }}
+
+                    <button type="submit" class="btn" id="inquire-submit">Send</button>
+                    <p id="inquire-status" role="status" aria-live="polite" style="font-size: 0.9rem; margin-top: 1rem; min-height: 1.2em;"></p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">For faster service, call <a href="{{ .Site.Params.phoneHref | safeURL }}">{{ .Site.Params.phone }}</a>.</p>
                 </form>
+
+                {{- with .Site.Params.formEndpoint }}
+                <script>window.__ADAMS_FORM_ENDPOINT = {{ . }};</script>
+                {{- end }}
+                {{- with .Site.Params.turnstileSiteKey }}
+                <script src="https://challenges.cloudflare.com/turnstile/v1/api.js" async defer></script>
+                {{- end }}
+                <script src="{{ "js/contact-form.js" | relURL }}" defer></script>
             </aside>
         </div>
     </div>

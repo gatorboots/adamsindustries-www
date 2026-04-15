@@ -29,6 +29,12 @@ canonifyURLs = false
   instagram = ""
   tiktok = ""
 
+  # Contact form wiring. See docs/FORM_SETUP.md for setup steps.
+  # Google Apps Script web app URL (ends in /exec). Leave empty to disable submission.
+  formEndpoint = ""
+  # Cloudflare Turnstile site key. Leave empty to skip the captcha widget.
+  turnstileSiteKey = ""
+
 [menu]
   [[menu.main]]
     identifier = "home"
