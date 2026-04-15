@@ -2,7 +2,7 @@
 title: "Adams Industries LLC"
 description: "Adams Industries LLC — a Baton Rouge family-run contractor. Twenty years of commercial, residential, industrial, and marine construction across Louisiana. Storm response. Licensed, insured, BBB A+."
 
-coverHeadline: "Twenty Years in Hurricane Country.<br>We Still Answer Our Own Phones."
+coverHeadline: "We Answer the Call.<br>Your Home or Business Is Our Priority."
 coverDeck: "Adams Industries is a family-run Louisiana contractor. The owner picks up when you call. The estimate comes from the person who'll run the job. Commercial, residential, industrial, marine — and the storm response that comes with living on the Gulf."
 coverCTA: "Call Us Direct"
 
