@@ -16,3 +16,12 @@ bin/
 .idea/
 *.swp
 *~
+
+# Local-only project files (not part of the Hugo site)
+.claude/
+docs/
+skills/
+memory.md
+skill.md
+README.md
+brskyline.jpg
