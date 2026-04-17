@@ -70,7 +70,7 @@
                 <script>window.__ADAMS_FORM_ENDPOINT = {{ . }};</script>
                 {{- end }}
                 {{- with .Site.Params.turnstileSiteKey }}
-                <script src="https://challenges.cloudflare.com/turnstile/v1/api.js" async defer></script>
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
                 {{- end }}
                 <script src="{{ "js/contact-form.js" | relURL }}" defer></script>
             </aside>
