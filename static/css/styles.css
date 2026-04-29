@@ -64,7 +64,6 @@ a:hover { color: var(--gold-dark); }
 }
 
 .kicker--plain { color: var(--text-muted); }
-.kicker--blue { color: var(--blue); }
 
 .display-1 {
     font-family: var(--font-display);
@@ -243,29 +242,6 @@ p { margin-bottom: 1rem; }
     inset: 0;
     background:
         linear-gradient(180deg, rgba(30,58,95,0.55) 0%, rgba(30,58,95,0.75) 100%);
-}
-
-.cover-backdrop {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1rem;
-    overflow: hidden;
-    pointer-events: none;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 0;
-}
-
-.cover-backdrop img {
-    width: min(960px, 90%);
-    height: auto;
-    object-fit: contain;
-    /* Black mono logo, sits along the bottom of the hero so the headline
-       breathes at the top and "Adams Industries LLC" reads cleanly below it.
-       No mask/fade — uniform visibility at a subtle opacity. */
-    opacity: 0.35;
 }
 
 .cover > .container {
@@ -690,20 +666,6 @@ p { margin-bottom: 1rem; }
     font-weight: 700;
 }
 
-.btn--ghost {
-    background: transparent;
-    color: var(--paper);
-    border-color: var(--paper);
-}
-.btn--ghost:hover { background: var(--gold); color: var(--blue); border-color: var(--gold); }
-
-.btn--dark {
-    background: var(--blue);
-    color: var(--paper);
-    border-color: var(--blue);
-}
-.btn--dark:hover { background: var(--gold); color: var(--blue); border-color: var(--gold); }
-
 /* ============================================================
    Contact form
    ============================================================ */
@@ -791,14 +753,6 @@ p { margin-bottom: 1rem; }
     color: var(--gold);
     margin-bottom: 0.85rem;
     font-weight: 600;
-}
-
-.colophon .logo-wrap img {
-    height: 60px;
-    width: auto;
-    background: var(--paper);
-    padding: 6px 10px;
-    border-radius: 2px;
 }
 
 .colophon p, .colophon li {
@@ -926,13 +880,6 @@ p { margin-bottom: 1rem; }
 @media (max-width: 720px) {
     .container, .container--narrow, .container--wide { padding: 0 18px; }
     .colophon-grid { grid-template-columns: repeat(2, 1fr); }
-    /* On mobile the backdrop still sits along the bottom of the hero;
-       just scale it down so Adams Industries LLC remains legible. */
-    .cover-backdrop img {
-        width: 100%;
-        max-width: none;
-        opacity: 0.3;
-    }
     .number {
         border-right: none;
         border-bottom: 1px solid var(--line-dark);
