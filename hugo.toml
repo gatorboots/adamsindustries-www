@@ -31,7 +31,7 @@ canonifyURLs = false
 
   # Contact form wiring. See docs/FORM_SETUP.md for setup steps.
   # Google Apps Script web app URL (ends in /exec). Leave empty to disable submission.
-  formEndpoint = "https://script.google.com/macros/s/AKfycbxkUoq6-5rsFtvvDJOauAJ1rVwMOBpyjvRQElgREuS_zQ-skzXKTqTy8_7juFdUXhKwHQ/exec"
+  formEndpoint = "https://script.google.com/macros/s/AKfycbyx5vRcQKT093mKbouIthlaN7aka8cKPK4tCHeqdxiMtNln_imhdnXKjNShD9FjGVAV9A/exec"
   # Cloudflare Turnstile site key. Leave empty to skip the captcha widget.
   turnstileSiteKey = "0x4AAAAAAC-foe0wKVwLd93v"
 
